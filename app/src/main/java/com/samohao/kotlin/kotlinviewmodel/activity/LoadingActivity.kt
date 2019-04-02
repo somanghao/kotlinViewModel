@@ -32,7 +32,6 @@ class LoadingActivity : AppCompatActivity() ,ActivityCompat.OnRequestPermissions
             R.anim.loading_slow
         ))
 
-        Handler().postDelayed({} , 2000)
         if(hasAllPermissionWithRequestPermission(true)) moveToNextActivity()
         else Toast.makeText(this , "not all permission" , Toast.LENGTH_LONG).show()
     }
@@ -49,8 +48,11 @@ class LoadingActivity : AppCompatActivity() ,ActivityCompat.OnRequestPermissions
     }
 
     private fun moveToNextActivity() {
-        startActivity(Intent(this@LoadingActivity , HomeActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-        finish()
+
+        Handler().postDelayed({
+            startActivity(Intent(this@LoadingActivity , HomeActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            finish()
+        } , 2000)
     }
 
     private fun hasAllPermissionWithRequestPermission(requestPermission : Boolean) :Boolean {
