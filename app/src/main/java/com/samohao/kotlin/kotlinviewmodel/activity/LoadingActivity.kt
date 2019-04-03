@@ -8,14 +8,24 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
-import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.samohao.kotlin.kotlinviewmodel.R
+import com.samohao.kotlin.kotlinviewmodel.data.MemberVo
+import com.samohao.kotlin.kotlinviewmodel.data.ResultVo
+import com.samohao.kotlin.kotlinviewmodel.network.ApiService
+import com.samohao.kotlin.kotlinviewmodel.network.HttpManager
+import com.samohao.kotlin.kotlinviewmodel.util.Base64EncodeUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 
 class LoadingActivity : AppCompatActivity() ,ActivityCompat.OnRequestPermissionsResultCallback{
     private val reqeustPermission : Int = 15
@@ -32,8 +42,13 @@ class LoadingActivity : AppCompatActivity() ,ActivityCompat.OnRequestPermissions
             R.anim.loading_slow
         ))
 
-        if(hasAllPermissionWithRequestPermission(true)) moveToNextActivity()
+        if(hasAllPermissionWithRequestPermission(true)) login()
         else Toast.makeText(this , "not all permission" , Toast.LENGTH_LONG).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -47,12 +62,42 @@ class LoadingActivity : AppCompatActivity() ,ActivityCompat.OnRequestPermissions
         }
     }
 
-    private fun moveToNextActivity() {
+    private fun login() {
+        val restClient : ApiService = HttpManager.getRetrofitService(ApiService::class.java)
+        requestLogin(restClient)
 
-        Handler().postDelayed({
-            startActivity(Intent(this@LoadingActivity , HomeActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-            finish()
-        } , 2000)
+
+    }
+
+    private fun getMember( data : ResultVo?) {
+        try {
+            if(data != null) {
+                var gson = Gson()
+                var memberVo = gson.fromJson(data.json , MemberVo::class.java)
+                Toast.makeText(this@LoadingActivity , memberVo.u_id , Toast.LENGTH_SHORT)
+            }
+        } catch (e: Exception) {
+        }
+    }
+
+    private fun requestLogin(restClient : ApiService) {
+        val login = restClient.requestLogin(Base64EncodeUtil.encoder("samohae"),Base64EncodeUtil.encoder("1234"))
+
+        login.enqueue(object : Callback<ResultVo> {
+            override fun onFailure(call: Call<ResultVo>, t: Throwable) {
+                Toast.makeText(this@LoadingActivity , t.toString() , Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<ResultVo>, response: Response<ResultVo>) {
+                if(response !=null && response.isSuccessful)
+                    getMember(response.body())
+
+                Handler().postDelayed({
+                    startActivity(Intent(this@LoadingActivity , HomeActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                    finish()
+                } , 2000)
+            }
+        })
     }
 
     private fun hasAllPermissionWithRequestPermission(requestPermission : Boolean) :Boolean {
@@ -100,7 +145,7 @@ class LoadingActivity : AppCompatActivity() ,ActivityCompat.OnRequestPermissions
             reqeustPermission -> {
                 //한개라도 거절하면 팝업
                 if(grantResults.any { it != PackageManager.PERMISSION_GRANTED }) showPermissionSetDialog()
-                else moveToNextActivity()
+                else login()
             }
         }
     }

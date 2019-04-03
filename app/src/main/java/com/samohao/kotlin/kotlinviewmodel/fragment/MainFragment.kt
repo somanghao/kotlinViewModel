@@ -131,7 +131,7 @@ class MainFragment : Fragment() {
     }
 
     private fun updateViewpager() {
-        adapter?.notifyDataSetChanged()
+        adapter.notifyDataSetChanged()
     }
 
     private inner class HomePageAdapter(fm : FragmentManager?) : FragmentStatePagerAdapter(fm) {
