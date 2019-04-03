@@ -6,12 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager.widget.ViewPager
 
 import com.samohao.kotlin.kotlinviewmodel.R
 import com.samohao.kotlin.kotlinviewmodel.viewModel.HomeViewModel
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeFragment : Fragment() {
-
+//    lateinit var fragmentInterfce : MainFragment.MainFragmentInterface
     companion object {
         fun newInstance() = HomeFragment()
     }
@@ -29,6 +33,8 @@ class HomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         // TODO: Use the ViewModel
+
+//        fragmentInterfce?.createdFragment()
     }
 
 }
