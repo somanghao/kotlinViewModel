@@ -8,30 +8,38 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.samohao.kotlin.kotlinviewmodel.CustomDialog
 import com.samohao.kotlin.kotlinviewmodel.R
 import com.samohao.kotlin.kotlinviewmodel.data.MemberVo
 import com.samohao.kotlin.kotlinviewmodel.data.ResultVo
-import com.samohao.kotlin.kotlinviewmodel.network.ApiService
+import com.samohao.kotlin.kotlinviewmodel.api.ApiService
+import com.samohao.kotlin.kotlinviewmodel.api.DonutLifeApi
+import com.samohao.kotlin.kotlinviewmodel.data.UserVo
+import com.samohao.kotlin.kotlinviewmodel.network.DountLifeRetrofitManager
 import com.samohao.kotlin.kotlinviewmodel.network.HttpManager
 import com.samohao.kotlin.kotlinviewmodel.util.Base64EncodeUtil
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
+import java.util.concurrent.TimeUnit
 
-class LoadingActivity : AppCompatActivity() ,ActivityCompat.OnRequestPermissionsResultCallback{
+class LoadingActivity : CommonActivity() ,ActivityCompat.OnRequestPermissionsResultCallback{
     private val reqeustPermission : Int = 15
     private val activityResultSetting : Int = 16
     private var permissionsItems = if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE , Manifest.permission.ACCESS_FINE_LOCATION , Manifest.permission.ACCESS_COARSE_LOCATION)
                                     else arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_FINE_LOCATION , Manifest.permission.ACCESS_COARSE_LOCATION)
+    private val disposables = CompositeDisposable()
+    private val retrofitManager : DonutLifeApi by lazy { DountLifeRetrofitManager.getRetrofitService(DonutLifeApi::class.java) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +50,7 @@ class LoadingActivity : AppCompatActivity() ,ActivityCompat.OnRequestPermissions
             R.anim.loading_slow
         ))
 
-        if(hasAllPermissionWithRequestPermission(true)) login()
+        if(hasAllPermissionWithRequestPermission(true)) loginObservable() //login()
         else Toast.makeText(this , "not all permission" , Toast.LENGTH_LONG).show()
     }
 
@@ -51,12 +59,17 @@ class LoadingActivity : AppCompatActivity() ,ActivityCompat.OnRequestPermissions
 
     }
 
+    override fun onStop() {
+        super.onStop()
+        disposables.clear()
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         when(requestCode) {
             activityResultSetting -> {
-                if(hasAllPermissionWithRequestPermission(true)) Toast.makeText(this@LoadingActivity , "all permission next activity" , Toast.LENGTH_LONG)
+                if(hasAllPermissionWithRequestPermission(true)) Toast.makeText(this@LoadingActivity , "all permission next activity" , Toast.LENGTH_LONG).show()
                 else Toast.makeText(this , "not all permission" , Toast.LENGTH_LONG).show()
             }
         }
@@ -69,18 +82,69 @@ class LoadingActivity : AppCompatActivity() ,ActivityCompat.OnRequestPermissions
 
     }
 
+    private fun loginObservable() {
+
+        Toast.makeText(this@LoadingActivity , "로그인 시도 합니다." , Toast.LENGTH_SHORT).show()
+
+        Handler().postDelayed({
+            commonDialog.show()
+            Handler().postDelayed({
+                disposables.add(retrofitManager.requestObservableLogin(Base64EncodeUtil.encoder("samohae"),Base64EncodeUtil.encoder("1234"))
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnSubscribe { commonDialog.show() }
+                    .doOnError { commonDialog.dismiss() }
+                    .doOnComplete { commonDialog.dismiss() }
+                    .subscribe {resultVo ->
+                        Log.e("samohao" , resultVo.toString())
+                        getMember(resultVo)
+                    })
+            } , 4000)
+
+
+
+        } , 2000)
+
+
+    }
+
     private fun getMember( data : ResultVo?) {
         try {
             if(data != null) {
-                var gson = Gson()
-                var memberVo = gson.fromJson(data.json , MemberVo::class.java)
-                Toast.makeText(this@LoadingActivity , memberVo.u_id , Toast.LENGTH_SHORT)
+                val gson = Gson()
+                val userVo :UserVo = gson.fromJson(data.json , UserVo::class.java)
+                val memberVo = userVo.memberVo
+                Toast.makeText(this@LoadingActivity , "${memberVo.u_nickname}님 환영합니다." , Toast.LENGTH_SHORT).show()
+
+                Handler().postDelayed({
+                    startActivity(Intent(this@LoadingActivity , HomeActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                    finish()
+                } , 2000)
             }
         } catch (e: Exception) {
         }
     }
 
     private fun requestLogin(restClient : ApiService) {
+        val login = restClient.requestLogin(Base64EncodeUtil.encoder("samohae"),Base64EncodeUtil.encoder("1234"))
+
+        login.enqueue(object : Callback<ResultVo> {
+            override fun onFailure(call: Call<ResultVo>, t: Throwable) {
+                Toast.makeText(this@LoadingActivity , t.toString() , Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<ResultVo>, response: Response<ResultVo>) {
+                if(response !=null && response.isSuccessful)
+                    getMember(response.body())
+
+                Handler().postDelayed({
+                    startActivity(Intent(this@LoadingActivity , HomeActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                    finish()
+                } , 2000)
+            }
+        })
+    }
+
+    private fun requestObservableLogin(restClient : ApiService) {
         val login = restClient.requestLogin(Base64EncodeUtil.encoder("samohae"),Base64EncodeUtil.encoder("1234"))
 
         login.enqueue(object : Callback<ResultVo> {

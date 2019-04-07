@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="125dp"
+    android:layout_height="175dp"
+    android:layout_gravity="center"
+    android:orientation="vertical" 
+    android:layout_margin="10dp"
+    >
+
+	<ImageView
+		android:id="@+id/iv_frame"
+		android:layout_width="125dp"
+		android:layout_height="175dp"
+		android:layout_gravity="center"
+		android:background="@drawable/ani_loading"
+		android:adjustViewBounds="true"
+		/>
+</LinearLayout>
