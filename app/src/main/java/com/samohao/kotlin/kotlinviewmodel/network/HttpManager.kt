@@ -47,8 +47,8 @@ object HttpManager {
                 if(userCookie != null) {
                     for(cookie in userCookie) {
                         addHeader("Cookie", cookie)
-                        removeHeader("User-Agent").addHeader("User-Agent", "Android")
                     }
+                    removeHeader("User-Agent").addHeader("User-Agent", "Android")
                 }
             }.build()
 
@@ -74,11 +74,13 @@ object HttpManager {
         override fun intercept(chain: Interceptor.Chain): Response {
             val originalResponse = chain.proceed(chain.request())
             if(!originalResponse.headers("Set-Cookie").isEmpty()) {
-                val userCookie :MutableSet<String>? = PrefererenceHelper.getAuthCookie(GlobalApplication.getContext())
+                val userCookie :MutableSet<String>? = mutableSetOf()
 
                 for(header in originalResponse.headers("Set-Cookie")) {
                     userCookie?.add(header)
                 }
+                if(userCookie != null)
+                    PrefererenceHelper.setAuthCookie(GlobalApplication.getContext() , userCookie.toHashSet())
             }
             return originalResponse
         }

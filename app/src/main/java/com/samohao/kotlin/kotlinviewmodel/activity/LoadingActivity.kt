@@ -25,6 +25,7 @@ import com.samohao.kotlin.kotlinviewmodel.data.UserVo
 import com.samohao.kotlin.kotlinviewmodel.network.DountLifeRetrofitManager
 import com.samohao.kotlin.kotlinviewmodel.network.HttpManager
 import com.samohao.kotlin.kotlinviewmodel.util.Base64EncodeUtil
+import com.samohao.kotlin.kotlinviewmodel.util.PrefererenceHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
@@ -113,6 +114,8 @@ class LoadingActivity : CommonActivity() ,ActivityCompat.OnRequestPermissionsRes
                 val gson = Gson()
                 val userVo :UserVo = gson.fromJson(data.json , UserVo::class.java)
                 val memberVo = userVo.memberVo
+
+                PrefererenceHelper.setMemberVo(this@LoadingActivity , memberVo)
                 Toast.makeText(this@LoadingActivity , "${memberVo.u_nickname}님 환영합니다." , Toast.LENGTH_SHORT).show()
 
                 Handler().postDelayed({

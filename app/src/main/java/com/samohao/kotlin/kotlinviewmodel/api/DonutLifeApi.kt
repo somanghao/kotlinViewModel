@@ -14,4 +14,11 @@ interface DonutLifeApi {
         @Field("user_id")     user_id:String,
         @Field("password")     password:String
     ) : Observable<ResultVo>
+
+    @FormUrlEncoded
+    @POST("service/chef/getChefRoomInfo")
+    fun  requestObservableRoomInfo(
+        @Field("u_id")      u_id:String,
+        @Field("room_id")     room_id:Long
+    ) : Observable<ResultVo>
 }
