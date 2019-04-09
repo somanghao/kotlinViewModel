@@ -7,6 +7,7 @@
 
     <data>
         <variable name="memberRoom" type="com.samohao.kotlin.kotlinviewmodel.data.MemberRoomVo" />
+        <variable name="drawerViewModel" type="com.samohao.kotlin.kotlinviewmodel.viewModel.DrawerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,6 +25,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textColor="@android:color/holo_orange_dark"
                 android:textSize="20sp"
                 android:text="header"
@@ -42,27 +44,28 @@
                 android:id="@+id/iv_profile"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:scaleType="centerInside"
+                android:scaleType="fitXY"
                 app:srcCompat="@drawable/ic_vec_profile"
                 android:layout_gravity="center_horizontal"
+                android:onClick=""
                 />
             <TextView
                 android:id="@+id/tv_nick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="22sp"
                 android:text="@{memberRoom.u_nickname}"
-                android:gravity="center"
                 />
             <TextView
                 android:id="@+id/tv_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="22sp"
-                android:text="@{memberRoom.me"
-                android:gravity="center"
+                android:text="@{memberRoom.intro_message}"
                 />
         </LinearLayout>
 
@@ -78,6 +81,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textColor="@android:color/holo_orange_dark"
                 android:textSize="20sp"
                 android:text="menu"
