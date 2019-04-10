@@ -1,16 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.ChatFragment"
-    android:background="@android:color/holo_blue_dark"
     >
 
-    <TextView
+    <data>
+        <variable
+            name="chatViewModel"
+            type="com.samohao.kotlin.kotlinviewmodel.viewModel.ChatViewModel"/>
+        <variable
+            name="voiceDataViewModel"
+            type="com.samohao.kotlin.kotlinviewmodel.viewModel.VoiceDataViewModel"/>
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Chat"/>
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/holo_blue_dark"
+        >
+        <Button
+            android:id="@+id/btn_speek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorAccent"
+            android:text="말해"
+            android:onClick="@{()->voiceDataViewModel.clickSpeechButton()}"
+            />
 
-</FrameLayout>
+        <!--android:onClick="@{voiceDataViewModel::onClick}"-->
+        <!--android:onClick="@{()->voiceDataViewModel.clickSpeechButton()}"-->
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:textSize="20sp"
+            android:text="@{voiceDataViewModel.result}"
+            />
+    </LinearLayout>
+</layout>
+

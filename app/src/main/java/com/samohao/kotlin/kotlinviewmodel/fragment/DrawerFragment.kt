@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.samohao.kotlin.kotlinviewmodel.viewModel.DrawerViewModel
@@ -46,6 +47,10 @@ class DrawerFragment : Fragment() {
 
         viewModel.memberRoomVo.observe(this , Observer<MemberRoomVo> {
             drawerFragmentBinding.memberRoom = it
+        })
+
+        viewModel.clickProfile.observe(this , Observer<Any> {
+            Toast.makeText(context , "아파" , Toast.LENGTH_SHORT).show()
         })
     }
 

@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.DrawerFragment">
+    tools:context=".fragment.DrawerFragment"
+    >
 
     <data>
         <variable name="memberRoom" type="com.samohao.kotlin.kotlinviewmodel.data.MemberRoomVo" />
@@ -47,7 +48,7 @@
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/ic_vec_profile"
                 android:layout_gravity="center_horizontal"
-                android:onClick=""
+                android:onClick="@{drawerViewModel.clickProfile"
                 />
             <TextView
                 android:id="@+id/tv_nick"

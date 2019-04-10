@@ -37,8 +37,11 @@ import java.util.concurrent.TimeUnit
 class LoadingActivity : CommonActivity() ,ActivityCompat.OnRequestPermissionsResultCallback{
     private val reqeustPermission : Int = 15
     private val activityResultSetting : Int = 16
-    private var permissionsItems = if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE , Manifest.permission.ACCESS_FINE_LOCATION , Manifest.permission.ACCESS_COARSE_LOCATION)
-                                    else arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_FINE_LOCATION , Manifest.permission.ACCESS_COARSE_LOCATION)
+    private var permissionsItems = if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) arrayOf(Manifest.permission.READ_PHONE_STATE
+        , Manifest.permission.READ_EXTERNAL_STORAGE , Manifest.permission.ACCESS_FINE_LOCATION
+        , Manifest.permission.ACCESS_COARSE_LOCATION , Manifest.permission.RECORD_AUDIO)
+                                    else arrayOf(Manifest.permission.READ_PHONE_STATE
+        , Manifest.permission.ACCESS_FINE_LOCATION , Manifest.permission.ACCESS_COARSE_LOCATION , Manifest.permission.RECORD_AUDIO)
     private val disposables = CompositeDisposable()
     private val retrofitManager : DonutLifeApi by lazy { DountLifeRetrofitManager.getRetrofitService(DonutLifeApi::class.java) }
 
@@ -86,24 +89,18 @@ class LoadingActivity : CommonActivity() ,ActivityCompat.OnRequestPermissionsRes
     private fun loginObservable() {
 
         Toast.makeText(this@LoadingActivity , "로그인 시도 합니다." , Toast.LENGTH_SHORT).show()
-
+        commonDialog.show()
         Handler().postDelayed({
-            commonDialog.show()
-            Handler().postDelayed({
-                disposables.add(retrofitManager.requestObservableLogin(Base64EncodeUtil.encoder("samohae"),Base64EncodeUtil.encoder("1234"))
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doOnSubscribe { commonDialog.show() }
-                    .doOnError { commonDialog.dismiss() }
-                    .doOnComplete { commonDialog.dismiss() }
-                    .subscribe {resultVo ->
-                        Log.e("samohao" , resultVo.toString())
-                        getMember(resultVo)
-                    })
-            } , 4000)
-
-
-
-        } , 2000)
+            disposables.add(retrofitManager.requestObservableLogin(Base64EncodeUtil.encoder("samohae"),Base64EncodeUtil.encoder("1234"))
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { commonDialog.show() }
+                .doOnError { commonDialog.dismiss() }
+                .doOnComplete { commonDialog.dismiss() }
+                .subscribe {resultVo ->
+                    Log.e("samohao" , resultVo.toString())
+                    getMember(resultVo)
+                })
+        } , 3000)
 
 
     }
@@ -118,10 +115,8 @@ class LoadingActivity : CommonActivity() ,ActivityCompat.OnRequestPermissionsRes
                 PrefererenceHelper.setMemberVo(this@LoadingActivity , memberVo)
                 Toast.makeText(this@LoadingActivity , "${memberVo.u_nickname}님 환영합니다." , Toast.LENGTH_SHORT).show()
 
-                Handler().postDelayed({
-                    startActivity(Intent(this@LoadingActivity , HomeActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-                    finish()
-                } , 2000)
+                startActivity(Intent(this@LoadingActivity , HomeActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                finish()
             }
         } catch (e: Exception) {
         }
