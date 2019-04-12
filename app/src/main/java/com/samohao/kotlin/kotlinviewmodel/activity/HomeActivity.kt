@@ -1,16 +1,18 @@
 package com.samohao.kotlin.kotlinviewmodel.activity
 
+import android.os.Build
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.samohao.kotlin.kotlinviewmodel.R
 import com.samohao.kotlin.kotlinviewmodel.fragment.DrawerFragment
-import com.samohao.kotlin.kotlinviewmodel.fragment.HomeFragment
+import com.samohao.kotlin.kotlinviewmodel.fragment.MainFragment
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 
@@ -20,10 +22,17 @@ import kotlinx.android.synthetic.main.app_bar_home.*
 class HomeActivity : AppCompatActivity() {
 
     private val adapter by lazy { DrawerPagerAdatper(supportFragmentManager) }
-    private val mItems by lazy { arrayListOf(DrawerFragment.newInstance() , HomeFragment.newInstance()) }
+    private val arrFragment by lazy { arrayListOf(DrawerFragment.newInstance() , MainFragment.newInstance()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        if (Build.VERSION.SDK_INT < 16) {
+//            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
+//        } else {
+//            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+//            actionBar?.hide()
+//        }
+
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
 
@@ -33,6 +42,10 @@ class HomeActivity : AppCompatActivity() {
     private fun initUI() {
         viewpager.adapter = adapter
         viewpager.setCurrentItem(PAGE_HOME, true)
+    }
+
+    fun openDraw() {
+        viewpager.currentItem = PAGE_DRAWER
     }
 
     override fun onBackPressed() {
@@ -62,11 +75,11 @@ class HomeActivity : AppCompatActivity() {
     private inner class DrawerPagerAdatper(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
         override fun getCount(): Int {
-            return mItems.size
+            return arrFragment.size
         }
 
         override fun getItem(position: Int): Fragment {
-            return mItems[position]
+            return arrFragment[position]
         }
     }
 }

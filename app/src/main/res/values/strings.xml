@@ -8,4 +8,5 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="kakao_app_key">be8bf414e8eef06d8fa2f505a2b6429e</string>
 </resources>
