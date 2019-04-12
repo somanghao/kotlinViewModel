@@ -21,6 +21,6 @@ open class  MemberVo {
 
 class MemberRoomVo(
     ) : MemberVo() {
-    @SerializedName("intro_message") val intro_message : String? = "상태 메세지"
-    @SerializedName("intro_picture") val intro_picture : String? = null
+    @SerializedName("intro_message") var intro_message : String? = "상태 메세지"
+    @SerializedName("intro_picture") var intro_picture : String? = null
 }

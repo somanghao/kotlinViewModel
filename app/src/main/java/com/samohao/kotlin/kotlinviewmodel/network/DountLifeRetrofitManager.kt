@@ -30,7 +30,7 @@ object DountLifeRetrofitManager {
         }.build()
 
         retofit = Retrofit.Builder().apply {
-            baseUrl("http://www.domalife.net/")
+            baseUrl("http://www.daum.net/")//
             client(okHttpClient)
             addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
             addConverterFactory(GsonConverterFactory.create())

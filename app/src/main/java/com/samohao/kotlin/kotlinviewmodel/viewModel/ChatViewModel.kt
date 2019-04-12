@@ -27,8 +27,4 @@ class ChatViewModel : CustomViewModel() {
             _chatRoomList.postValue(gson.fromJson(data.json , ChatRoomData::class.java))
         }
     }
-
-    fun clickButton() {
-        val aa = ""
-    }
 }

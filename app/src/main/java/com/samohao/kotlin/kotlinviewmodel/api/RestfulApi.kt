@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 
-interface DonutLifeApi {
+interface RestfulApi {
 
     @FormUrlEncoded
     @POST("service/common/login")
