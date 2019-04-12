@@ -29,7 +29,7 @@ object HttpManager {
         }.build()
 
         retofit = Retrofit.Builder().apply {
-            baseUrl("http://www.domalife.net/")
+            baseUrl("http://www.daum.net/")
             client(okHttpClient)
             addConverterFactory(GsonConverterFactory.create())
         }.build()
