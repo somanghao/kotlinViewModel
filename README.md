@@ -1,7 +1,8 @@
 # kotlinViewModel
 kotlin viewModel
 
-Toy Project입니다.
+Toy Project입니다. 그래서 잘모르고 쓰고있는 것들도 많습니다.
+
 
 적용된 기술
 1. KOTLIN
