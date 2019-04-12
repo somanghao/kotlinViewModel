@@ -4,31 +4,22 @@ kotlin viewModel
 Toy Project입니다. 그래서 잘모르고 쓰고있는 것들도 많습니다.
 
 
-적용된 기술
+학습하고 있는 
 1. KOTLIN
 
 2. Android Architecture Components
 
-
-1)MVVM
-
-2)LIVEDATA
-
-3)DATABINDING
-
+ - MVVM
+ - LIVEDATA
+ - DATABINDING
 
 3. 통신
-
-
-1) Retrofit
-
+ - Retrofit
 
 4. Reactive
+ - rxandroid
 
-
-1) rxandroid
-
-3. DI - KOIN
+5. DI - KOIN
 
 
 적용예정
