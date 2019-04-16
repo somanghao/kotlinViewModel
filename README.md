@@ -1,10 +1,10 @@
 # kotlinViewModel
 kotlin viewModel
 
-Toy Project입니다. 그래서 잘모르고 쓰고있는 것들도 많습니다.
+Toy Project입니다. 그래서 잘모르고 쓰고있는 것들도 많습니다
 
 
-학습하고 있는 
+학습하고 있는 내용
 1. KOTLIN
 
 2. Android Architecture Components
