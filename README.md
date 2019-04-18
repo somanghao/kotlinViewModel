@@ -20,7 +20,9 @@ Toy Project입니다. 그래서 잘모르고 쓰고있는 것들도 많습니다
  - rxandroid
 
 5. DI - KOIN
-
+  - 모르겠네요 ㅎ
+  
+6. Room -> testActivity ->weatherActivity
 
 적용예정
 
