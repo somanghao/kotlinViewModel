@@ -1,18 +1,24 @@
 package com.samohao.kotlin.kotlinviewmodel.fragment
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 
 import com.samohao.kotlin.kotlinviewmodel.R
 import com.samohao.kotlin.kotlinviewmodel.databinding.StoryFragmentBinding
+import com.samohao.kotlin.kotlinviewmodel.feature.blog.BlogActivity
+import com.samohao.kotlin.kotlinviewmodel.feature.weather.WeatherActivity
+import com.samohao.kotlin.kotlinviewmodel.viewModel.MissionViewModel
 import com.samohao.kotlin.kotlinviewmodel.viewModel.StoryViewModel
+import kotlinx.android.synthetic.main.story_fragment.*
 
-class StoryFragment : CustomFragment() {
+class StoryFragment : Fragment() {
 
     companion object {
         fun newInstance() = StoryFragment()
@@ -32,25 +38,8 @@ class StoryFragment : CustomFragment() {
         super.onActivityCreated(savedInstanceState)
         storyViewModel = ViewModelProviders.of(this).get(StoryViewModel::class.java)
         // TODO: Use the ViewModel
-    }
 
-    override fun initViewModel() {
-        storyViewModel = ViewModelProviders.of(this).get(StoryViewModel::class.java)
-    }
-
-    override fun initDataBind(inflater: LayoutInflater, container: ViewGroup?): View? {
-        storyFragmentBinding = DataBindingUtil.inflate(inflater ,R.layout.drawer_fragment, container, false)
-        storyFragmentBinding.storyViewModel = storyViewModel
-        storyFragmentBinding.lifecycleOwner = this
-        return storyFragmentBinding.root
-    }
-
-    override fun observerViewModel() {
-        storyViewModel.responseA.observe( this, Observer {
-            storyFragmentBinding.tvResponseA.append(it)
-        })
-        storyViewModel.responseB.observe( this, Observer {
-            storyFragmentBinding.tvResponseB.append(it)
-        })
+        btnBlog.setOnClickListener{startActivity(Intent(activity , BlogActivity::class.java))}
+        btnWeather.setOnClickListener { startActivity(Intent(activity , WeatherActivity::class.java)) }
     }
 }

@@ -11,6 +11,7 @@ import android.os.Handler
 import android.provider.Settings
 import android.util.Base64
 import android.util.Log
+import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -35,6 +36,7 @@ import java.security.MessageDigest
 import com.kakao.auth.Session
 import com.kakao.auth.ISessionCallback
 import com.kakao.util.exception.KakaoException
+import com.samohao.kotlin.kotlinviewmodel.feature.TestActivity
 
 class LoadingActivity : CommonActivity() ,ActivityCompat.OnRequestPermissionsResultCallback{
     private val reqeustPermission : Int = 15
@@ -103,10 +105,13 @@ class LoadingActivity : CommonActivity() ,ActivityCompat.OnRequestPermissionsRes
         }
     }
 
+    fun clickButton(view : View) {
+        startActivity(Intent(this , TestActivity::class.java))
+    }
+
     private fun login() {
         val restClient : ApiService = HttpManager.getRetrofitService(ApiService::class.java)
         requestLogin(restClient)
-
 
     }
 
