@@ -59,5 +59,17 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".feature.weather.WeatherActivity"
+            >
+        </activity>
+        <activity
+            android:name=".feature.TestActivity"
+            >
+        </activity>
+        <activity
+            android:name=".feature.blog.BlogActivity"
+            >
+        </activity>
     </application>
 </manifest>

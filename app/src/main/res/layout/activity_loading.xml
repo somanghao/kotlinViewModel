@@ -26,4 +26,16 @@
         android:layout_alignParentBottom="true"
         />
 
+    <Button
+        android:id="@+id/btnWeather"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:onClick="clickButton"
+        android:text="testActivity"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_orange_dark"
+        android:layout_above="@+id/com_kakao_login"
+        />
+
 </RelativeLayout>

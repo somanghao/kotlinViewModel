@@ -91,6 +91,7 @@ class MainFragment : Fragment() {
                 Toast.makeText(context , "page index is " + position , Toast.LENGTH_LONG).show()
             }
         })
+        viewpager.currentItem = PAGE_STORY
     }
 
     private fun initTabLayout() {
