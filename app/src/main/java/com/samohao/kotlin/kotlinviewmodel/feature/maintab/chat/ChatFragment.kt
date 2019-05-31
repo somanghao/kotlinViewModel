@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.chat
+package com.samohao.kotlin.kotlinviewmodel.feature.maintab.chat
 
 import android.app.Activity
 import android.content.Context
@@ -16,10 +16,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.samohao.kotlin.kotlinviewmodel.R
 
-import com.samohao.kotlin.kotlinviewmodel.activity.HomeActivity
+import com.samohao.kotlin.kotlinviewmodel.feature.maintab.HomeActivity
 import com.samohao.kotlin.kotlinviewmodel.databinding.ChatFragmentBinding
-import com.samohao.kotlin.kotlinviewmodel.viewModel.VoiceDataViewModel
-import com.samohao.kotlin.kotlinviewmodel.viewModel.VoiceDataViewModelFactory
+import com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice.VoiceDataViewModel
+import com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice.VoiceDataViewModelFactory
 import org.koin.android.ext.android.inject
 
 

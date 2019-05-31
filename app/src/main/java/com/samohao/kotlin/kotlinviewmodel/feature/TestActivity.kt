@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.samohao.kotlin.kotlinviewmodel.R
-import com.samohao.kotlin.kotlinviewmodel.feature.weather.WeatherActivity
+import com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.weather.WeatherActivity
 
 class TestActivity : AppCompatActivity() {
 

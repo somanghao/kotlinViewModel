@@ -28,10 +28,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
-        <activity android:name=".activity.CommonActivity">
+        <activity android:name=".core.uiframework.CommonActivity">
         </activity>
         <activity
-                android:name=".activity.LoadingActivity"
+                android:name=".feature.loading.LoadingActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/FullScreen">
             <intent-filter>
@@ -41,7 +41,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.HomeActivity"
+                android:name=".feature.maintab.HomeActivity"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
@@ -60,7 +60,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".feature.weather.WeatherActivity"
+            android:name="com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.weather.WeatherActivity"
             >
         </activity>
         <activity
@@ -68,7 +68,7 @@
             >
         </activity>
         <activity
-            android:name=".feature.blog.BlogActivity"
+            android:name="com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.BlogActivity"
             >
         </activity>
     </application>

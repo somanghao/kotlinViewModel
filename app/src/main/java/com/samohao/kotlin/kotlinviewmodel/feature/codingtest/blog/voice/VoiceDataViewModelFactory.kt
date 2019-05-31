@@ -1,8 +1,7 @@
-package com.samohao.kotlin.kotlinviewmodel.viewModel
+package com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.samohao.kotlin.kotlinviewmodel.model.VoiceDataRepository
 
 class VoiceDataViewModelFactory(private val repository: VoiceDataRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

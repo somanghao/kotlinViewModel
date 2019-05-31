@@ -6,7 +6,7 @@
     tools:context=".frament.StoryFragment"
     >
     <data>
-        <variable name="storyViewModel" type="com.samohao.kotlin.kotlinviewmodel.viewModel.StoryViewModel"/>
+        <variable name="storyViewModel" type="com.samohao.kotlin.kotlinviewmodel.feature.story.StoryViewModel"/>
 
     </data>
 

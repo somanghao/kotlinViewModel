@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.activity
+package com.samohao.kotlin.kotlinviewmodel.feature.maintab
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.samohao.kotlin.kotlinviewmodel.R
 import com.samohao.kotlin.kotlinviewmodel.feature.drawer.DrawerFragment
-import com.samohao.kotlin.kotlinviewmodel.feature.maintab.MainFragment
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 
@@ -47,7 +46,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (viewpager.currentItem == PAGE_DRAWER) {
-            viewpager.setCurrentItem(PAGE_HOME , true)
+            viewpager.setCurrentItem(PAGE_HOME, true)
         } else {
             super.onBackPressed()
         }

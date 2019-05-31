@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.DrawerFragment"
+    tools:context=".feature.drawer.DrawerFragment"
     >
 
     <data>
-        <variable name="memberRoom" type="com.samohao.kotlin.kotlinviewmodel.data.MemberRoomVo" />
-        <variable name="drawerViewModel" type="com.samohao.kotlin.kotlinviewmodel.viewModel.DrawerViewModel" />
+        <variable name="memberRoom" type="com.samohao.kotlin.kotlinviewmodel.feature.login.MemberRoomVo" />
+        <variable name="drawerViewModel" type="com.samohao.kotlin.kotlinviewmodel.feature.drawer.DrawerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

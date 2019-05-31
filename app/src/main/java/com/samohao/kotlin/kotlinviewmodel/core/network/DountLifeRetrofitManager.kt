@@ -1,6 +1,5 @@
-package com.samohao.kotlin.kotlinviewmodel.network
+package com.samohao.kotlin.kotlinviewmodel.core.network
 
-import android.provider.Settings
 import com.samohao.kotlin.kotlinviewmodel.GlobalApplication
 import com.samohao.kotlin.kotlinviewmodel.util.PrefererenceHelper
 import okhttp3.Interceptor

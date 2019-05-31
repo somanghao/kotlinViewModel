@@ -1,8 +1,8 @@
-package com.samohao.kotlin.kotlinviewmodel.di
+package com.samohao.kotlin.kotlinviewmodel.core.di
 
-import com.samohao.kotlin.kotlinviewmodel.model.VoiceDataRepository
-import com.samohao.kotlin.kotlinviewmodel.viewModel.VoiceDataRepositoryImpl
-import com.samohao.kotlin.kotlinviewmodel.viewModel.VoiceDataViewModelFactory
+import com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice.VoiceDataRepository
+import com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice.VoiceDataRepositoryImpl
+import com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice.VoiceDataViewModelFactory
 import org.koin.core.module.Module
 import org.koin.dsl.module
 

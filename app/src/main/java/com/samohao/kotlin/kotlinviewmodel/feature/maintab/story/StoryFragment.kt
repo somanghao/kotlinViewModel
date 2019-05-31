@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.story
+package com.samohao.kotlin.kotlinviewmodel.feature.maintab.story
 
 import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 
 import com.samohao.kotlin.kotlinviewmodel.R
 import com.samohao.kotlin.kotlinviewmodel.databinding.StoryFragmentBinding
-import com.samohao.kotlin.kotlinviewmodel.feature.blog.BlogActivity
-import com.samohao.kotlin.kotlinviewmodel.feature.weather.WeatherActivity
+import com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.BlogActivity
+import com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.weather.WeatherActivity
 import kotlinx.android.synthetic.main.story_fragment.*
 
 class StoryFragment : Fragment() {

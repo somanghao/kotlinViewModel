@@ -1,9 +1,8 @@
-package com.samohao.kotlin.kotlinviewmodel.api
+package com.samohao.kotlin.kotlinviewmodel.core.api
 
-import com.samohao.kotlin.kotlinviewmodel.data.ResultVo
+import com.samohao.kotlin.kotlinviewmodel.feature.login.ResultVo
 import io.reactivex.Observable
 import io.reactivex.Single
-import retrofit2.Call
 import retrofit2.http.*
 
 

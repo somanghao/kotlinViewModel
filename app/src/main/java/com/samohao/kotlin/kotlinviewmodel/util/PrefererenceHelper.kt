@@ -2,7 +2,7 @@ package com.samohao.kotlin.kotlinviewmodel.util
 
 import android.content.Context
 import com.google.gson.Gson
-import com.samohao.kotlin.kotlinviewmodel.data.MemberVo
+import com.samohao.kotlin.kotlinviewmodel.feature.login.MemberVo
 
     class PrefererenceHelper {
         companion object {

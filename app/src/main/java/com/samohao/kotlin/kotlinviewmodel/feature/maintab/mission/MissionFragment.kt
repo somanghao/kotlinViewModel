@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.fragment
+package com.samohao.kotlin.kotlinviewmodel.feature.maintab.mission
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.samohao.kotlin.kotlinviewmodel.R
-import com.samohao.kotlin.kotlinviewmodel.viewModel.MissionViewModel
 
 class MissionFragment : Fragment() {
 

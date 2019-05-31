@@ -3,7 +3,7 @@ package com.samohao.kotlin.kotlinviewmodel
 import android.app.Application
 import android.content.Context
 import com.kakao.auth.*
-import com.samohao.kotlin.kotlinviewmodel.di.appModule
+import com.samohao.kotlin.kotlinviewmodel.core.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

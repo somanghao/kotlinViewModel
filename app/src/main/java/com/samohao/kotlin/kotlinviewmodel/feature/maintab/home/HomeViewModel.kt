@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.viewModel
+package com.samohao.kotlin.kotlinviewmodel.feature.maintab.home
 
 import androidx.lifecycle.ViewModel;
 

@@ -1,6 +1,6 @@
-package com.samohao.kotlin.kotlinviewmodel.model
+package com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice
 
-import com.samohao.kotlin.kotlinviewmodel.data.ResultVo
+import com.samohao.kotlin.kotlinviewmodel.feature.login.ResultVo
 import io.reactivex.Single
 
 interface VoiceDataRepository {

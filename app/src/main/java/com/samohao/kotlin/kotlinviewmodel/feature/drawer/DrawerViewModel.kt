@@ -1,17 +1,14 @@
-package com.samohao.kotlin.kotlinviewmodel.viewModel
+package com.samohao.kotlin.kotlinviewmodel.feature.drawer
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.google.gson.Gson
 import com.kakao.network.ErrorResult
 import com.kakao.usermgmt.UserManagement
 import com.kakao.usermgmt.callback.MeV2ResponseCallback
 import com.kakao.usermgmt.response.MeV2Response
-import com.samohao.kotlin.kotlinviewmodel.data.MemberRoomVo
-import com.samohao.kotlin.kotlinviewmodel.data.ResultVo
-import com.samohao.kotlin.kotlinviewmodel.util.SingleLiveEvent
-import io.reactivex.android.schedulers.AndroidSchedulers
+import com.samohao.kotlin.kotlinviewmodel.feature.login.MemberRoomVo
+import com.samohao.kotlin.kotlinviewmodel.core.uiframework.SingleLiveEvent
+import com.samohao.kotlin.kotlinviewmodel.core.uiframework.CustomViewModel
 
 class DrawerViewModel : CustomViewModel() {
     // TODO: Implement the ViewModel

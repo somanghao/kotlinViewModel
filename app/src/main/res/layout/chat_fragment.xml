@@ -3,16 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.ChatFragment"
+    tools:context=".feature.maintab.chat.ChatFragment"
     >
 
     <data>
         <variable
             name="chatViewModel"
-            type="com.samohao.kotlin.kotlinviewmodel.viewModel.ChatViewModel"/>
+            type="com.samohao.kotlin.kotlinviewmodel.feature.chat.ChatViewModel"/>
         <variable
             name="voiceDataViewModel"
-            type="com.samohao.kotlin.kotlinviewmodel.viewModel.VoiceDataViewModel"/>
+            type="com.samohao.kotlin.kotlinviewmodel.feature.voice.VoiceDataViewModel"/>
     </data>
 
     <LinearLayout

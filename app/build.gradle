@@ -60,6 +60,8 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt  "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
 
+    //map
+    implementation 'com.google.maps.android:android-maps-utils:0.5+'
 
     //kakao
     // 카카오 로그인 sdk를 사용하기 위해 필요.

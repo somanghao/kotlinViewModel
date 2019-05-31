@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.fragment
+package com.samohao.kotlin.kotlinviewmodel.feature.drawer
 
 import android.content.Context
 import androidx.lifecycle.ViewModelProviders
@@ -10,9 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import com.samohao.kotlin.kotlinviewmodel.viewModel.DrawerViewModel
 import com.samohao.kotlin.kotlinviewmodel.R
-import com.samohao.kotlin.kotlinviewmodel.data.MemberRoomVo
+import com.samohao.kotlin.kotlinviewmodel.feature.login.MemberRoomVo
 import com.samohao.kotlin.kotlinviewmodel.databinding.DrawerFragmentBinding
 import com.samohao.kotlin.kotlinviewmodel.util.PrefererenceHelper
 

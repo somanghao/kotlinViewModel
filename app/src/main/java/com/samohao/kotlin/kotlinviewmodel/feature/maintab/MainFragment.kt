@@ -1,8 +1,7 @@
-package com.samohao.kotlin.kotlinviewmodel.fragment
+package com.samohao.kotlin.kotlinviewmodel.feature.maintab
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,8 +15,10 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 
 import com.samohao.kotlin.kotlinviewmodel.R
-import com.samohao.kotlin.kotlinviewmodel.activity.HomeActivity
-import com.samohao.kotlin.kotlinviewmodel.viewModel.MainViewModel
+import com.samohao.kotlin.kotlinviewmodel.feature.maintab.chat.ChatFragment
+import com.samohao.kotlin.kotlinviewmodel.feature.maintab.home.HomeFragment
+import com.samohao.kotlin.kotlinviewmodel.feature.maintab.mission.MissionFragment
+import com.samohao.kotlin.kotlinviewmodel.feature.maintab.story.StoryFragment
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainFragment : Fragment() {
@@ -28,8 +29,13 @@ class MainFragment : Fragment() {
     private val PAGE_MISSTION = 3
 
     private val adapter by lazy { HomePageAdapter(childFragmentManager) } //fragmentManager 사용하면 child Fragmnet생성전 추가됨
-    private val arrFragment by lazy { arrayListOf(HomeFragment.newInstance() , StoryFragment.newInstance()
-        , ChatFragment.newInstance() , MissionFragment.newInstance()) }
+    private val arrFragment by lazy { arrayListOf(
+        HomeFragment.newInstance(),
+        StoryFragment.newInstance()
+        ,
+        ChatFragment.newInstance(),
+        MissionFragment.newInstance()
+    ) }
 
     companion object {
         fun newInstance() = MainFragment()

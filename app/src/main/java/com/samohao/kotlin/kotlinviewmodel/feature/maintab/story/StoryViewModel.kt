@@ -1,6 +1,6 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.story
+package com.samohao.kotlin.kotlinviewmodel.feature.maintab.story
 
-import com.samohao.kotlin.kotlinviewmodel.viewModel.CustomViewModel
+import com.samohao.kotlin.kotlinviewmodel.core.uiframework.CustomViewModel
 
 class StoryViewModel : CustomViewModel() {
 }

@@ -1,11 +1,10 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.chat
+package com.samohao.kotlin.kotlinviewmodel.feature.maintab.chat
 
 import androidx.lifecycle.LiveData
 import com.google.gson.Gson
-import com.samohao.kotlin.kotlinviewmodel.data.ResultVo
-import com.samohao.kotlin.kotlinviewmodel.model.ChatRoomData
-import com.samohao.kotlin.kotlinviewmodel.util.SingleLiveEvent
-import com.samohao.kotlin.kotlinviewmodel.viewModel.CustomViewModel
+import com.samohao.kotlin.kotlinviewmodel.feature.login.ResultVo
+import com.samohao.kotlin.kotlinviewmodel.core.uiframework.SingleLiveEvent
+import com.samohao.kotlin.kotlinviewmodel.core.uiframework.CustomViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 
 class ChatViewModel : CustomViewModel() {

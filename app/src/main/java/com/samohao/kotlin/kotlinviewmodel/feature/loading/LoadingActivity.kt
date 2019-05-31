@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.activity
+package com.samohao.kotlin.kotlinviewmodel.feature.loading
 
 import android.Manifest
 import android.content.Intent
@@ -18,10 +18,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import com.google.gson.Gson
 import com.samohao.kotlin.kotlinviewmodel.R
-import com.samohao.kotlin.kotlinviewmodel.data.ResultVo
+import com.samohao.kotlin.kotlinviewmodel.feature.login.ResultVo
 import com.samohao.kotlin.kotlinviewmodel.core.api.ApiService
 import com.samohao.kotlin.kotlinviewmodel.core.api.RestfulApi
-import com.samohao.kotlin.kotlinviewmodel.data.UserVo
+import com.samohao.kotlin.kotlinviewmodel.feature.login.UserVo
 import com.samohao.kotlin.kotlinviewmodel.core.network.DountLifeRetrofitManager
 import com.samohao.kotlin.kotlinviewmodel.core.network.HttpManager
 import com.samohao.kotlin.kotlinviewmodel.util.Base64EncodeUtil
@@ -36,8 +36,9 @@ import java.security.MessageDigest
 import com.kakao.auth.Session
 import com.kakao.auth.ISessionCallback
 import com.kakao.util.exception.KakaoException
-import com.samohao.kotlin.kotlinviewmodel.core.framework.CommonActivity
+import com.samohao.kotlin.kotlinviewmodel.core.uiframework.CommonActivity
 import com.samohao.kotlin.kotlinviewmodel.feature.TestActivity
+import com.samohao.kotlin.kotlinviewmodel.feature.maintab.HomeActivity
 
 class LoadingActivity : CommonActivity() ,ActivityCompat.OnRequestPermissionsResultCallback{
     private val reqeustPermission : Int = 15
@@ -138,7 +139,7 @@ class LoadingActivity : CommonActivity() ,ActivityCompat.OnRequestPermissionsRes
         try {
             if(data != null) {
                 val gson = Gson()
-                val userVo :UserVo = gson.fromJson(data.json , UserVo::class.java)
+                val userVo : UserVo = gson.fromJson(data.json , UserVo::class.java)
                 val memberVo = userVo.memberVo
 
                 PrefererenceHelper.setMemberVo(this@LoadingActivity , memberVo)
