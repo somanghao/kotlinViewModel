@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.weather
+package com.samohao.kotlin.kotlinviewmodel.feature.blog.weather
 
 import androidx.room.*
 

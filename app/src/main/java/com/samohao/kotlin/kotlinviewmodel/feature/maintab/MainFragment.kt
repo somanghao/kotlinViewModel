@@ -53,30 +53,13 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
-
-//        val home = HomeFragment()
-//        home.fragmentInterfce = object: MainFragmentInterface {
-//            override fun createdFragment() {
-//                Handler().post {
-//                    adapter.updatePage()
-//                }
-//            }
-//        }
-//        val story = StoryFragment()
-//        val chat = ChatFragment()
-//        val mission = MissionFragment()
-//        arrFragment.add(home)
-//        arrFragment.add(story)
-//        arrFragment.add(chat)
-//        arrFragment.add(mission)
         initLayout()
     }
 
     private fun initLayout() {
         ib_menu.setOnClickListener(View.OnClickListener {
             val mainActivity = activity
-            if(mainActivity is HomeActivity) mainActivity.openDraw()
+            if(mainActivity is MainTabActivity) mainActivity.openDraw()
         })
         initViewPager()
         initTabLayout()

@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog
+package com.samohao.kotlin.kotlinviewmodel.feature.blog
 
 import io.reactivex.Single
 import retrofit2.http.*

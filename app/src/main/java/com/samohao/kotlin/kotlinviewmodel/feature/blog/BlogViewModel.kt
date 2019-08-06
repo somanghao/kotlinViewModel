@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog
+package com.samohao.kotlin.kotlinviewmodel.feature.blog
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +16,10 @@ class BlogViewModel : CustomViewModel() {
         if(input.isNullOrEmpty()) return
 
         addDisposable(
-            BlogRetrofitManager.getRetrofitService(BlogService::class.java , "http://www.a.com/").postBlogA(input)
+            BlogRetrofitManager.getRetrofitService(
+                BlogService::class.java,
+                "http://www.a.com/"
+            ).postBlogA(input)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSuccess {
@@ -35,7 +38,10 @@ class BlogViewModel : CustomViewModel() {
             ))
 
         addDisposable(
-            BlogRetrofitManager.getRetrofitService(BlogService::class.java , "http://www.b.com/").postBlogB(input)
+            BlogRetrofitManager.getRetrofitService(
+                BlogService::class.java,
+                "http://www.b.com/"
+            ).postBlogB(input)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSuccess {

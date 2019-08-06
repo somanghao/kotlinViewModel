@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".feature.codingtest.blog.weather.WeatherActivity"
+    tools:context=".feature.blog.weather.WeatherActivity"
     >
     <data>
-        <variable name="weatherViewModel" type="com.samohao.kotlin.kotlinviewmodel.feature.weather.WeatherViewModel"/>
+        <variable name="weatherViewModel" type="com.samohao.kotlin.kotlinviewmodel.feature.blog.weather.WeatherViewModel"/>
 
     </data>
 

@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.weather
+package com.samohao.kotlin.kotlinviewmodel.feature.blog.weather
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -16,7 +16,7 @@ class WeatherViewModel : CustomViewModel() {
     private val _responseWeather = MutableLiveData<Int>()
     val responseWeather : LiveData<Int> get() = _responseWeather
 
-    fun fetchWeather(weatherActivity: WeatherActivity , id : Int) {
+    fun fetchWeather(weatherActivity: WeatherActivity, id : Int) {
         if(id == 0) return
         this.weatherActivity = weatherActivity
         this.mConText = weatherActivity

@@ -41,7 +41,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".feature.maintab.HomeActivity"
+                android:name=".feature.maintab.MainTabActivity"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
@@ -60,7 +60,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.weather.WeatherActivity"
+            android:name="com.samohao.kotlin.kotlinviewmodel.feature.blog.weather.WeatherActivity"
             >
         </activity>
         <activity
@@ -68,7 +68,7 @@
             >
         </activity>
         <activity
-            android:name="com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.BlogActivity"
+            android:name="com.samohao.kotlin.kotlinviewmodel.feature.blog.BlogActivity"
             >
         </activity>
     </application>

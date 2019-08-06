@@ -16,10 +16,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.samohao.kotlin.kotlinviewmodel.R
 
-import com.samohao.kotlin.kotlinviewmodel.feature.maintab.HomeActivity
+import com.samohao.kotlin.kotlinviewmodel.feature.maintab.MainTabActivity
 import com.samohao.kotlin.kotlinviewmodel.databinding.ChatFragmentBinding
-import com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice.VoiceDataViewModel
-import com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice.VoiceDataViewModelFactory
+import com.samohao.kotlin.kotlinviewmodel.feature.voice.VoiceDataViewModel
+import com.samohao.kotlin.kotlinviewmodel.feature.voice.VoiceDataViewModelFactory
 import org.koin.android.ext.android.inject
 
 
@@ -52,7 +52,7 @@ class ChatFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        activity = getActivity() as HomeActivity
+        activity = getActivity() as MainTabActivity
         //chatViewModel.getMyChatRoomInfo("test" , 1111)
 
         chatViewModel.chatRoomList.observe(this , Observer {

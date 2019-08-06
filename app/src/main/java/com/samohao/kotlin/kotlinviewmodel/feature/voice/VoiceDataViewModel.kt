@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice
+package com.samohao.kotlin.kotlinviewmodel.feature.voice
 
 import android.view.View
 import androidx.lifecycle.LiveData

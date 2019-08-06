@@ -30,10 +30,12 @@ import com.samohao.kotlin.kotlinviewmodel.feature.login.MemberVo
                 context.getSharedPreferences(TAG , Context.MODE_PRIVATE).edit().putString(KEY_MEMBER ,gsonMember).commit()
             }
 
-            fun getMemberVo(context : Context) : MemberVo {
+            fun getMemberVo(context : Context) : MemberVo? {
 
                 val member =  context.getSharedPreferences(TAG, Context.MODE_PRIVATE).getString(KEY_MEMBER , null)
-                return Gson().fromJson(member , MemberVo::class.java)
+                if(member != null) return Gson().fromJson(member , MemberVo::class.java)
+
+                return null
             }
         }
     }

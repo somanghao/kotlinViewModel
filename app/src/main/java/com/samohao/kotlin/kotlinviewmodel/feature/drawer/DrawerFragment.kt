@@ -40,9 +40,8 @@ class DrawerFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(DrawerViewModel::class.java)
 
         val context : Context = context!!
-        val memberVo = PrefererenceHelper.getMemberVo(context)
 
-        viewModel.getMyRoomInfo(memberVo.u_id , memberVo.member_room_id)
+        viewModel.getMyRoomInfo(context)
 
         viewModel.memberRoomVo.observe(this , Observer<MemberRoomVo> {
             drawerFragmentBinding.memberRoom = it

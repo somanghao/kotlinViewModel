@@ -9,7 +9,7 @@
     <data>
         <variable
             name="chatViewModel"
-            type="com.samohao.kotlin.kotlinviewmodel.feature.chat.ChatViewModel"/>
+            type="com.samohao.kotlin.kotlinviewmodel.feature.maintab.chat.ChatViewModel"/>
         <variable
             name="voiceDataViewModel"
             type="com.samohao.kotlin.kotlinviewmodel.feature.voice.VoiceDataViewModel"/>

@@ -12,10 +12,10 @@ class  UserVo(val u_id : String, val memberVo: MemberVo)
 
 open class  MemberVo {
     val u_id : String = ""
-    @SerializedName("u_nickname") val u_nickname : String = ""
-    @SerializedName("profile_filename") val profile_filename : String = ""
+    @SerializedName("u_nickname") var u_nickname : String = ""
+    @SerializedName("profile_filename") var profile_filename : String = ""
     val u_login_auth_key : String = ""
-    val u_name : String = ""
+    var u_name : String = ""
     val member_room_id : Long = -1
 }
 

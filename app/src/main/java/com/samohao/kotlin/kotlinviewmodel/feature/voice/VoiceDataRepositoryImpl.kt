@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.voice
+package com.samohao.kotlin.kotlinviewmodel.feature.voice
 
 import com.samohao.kotlin.kotlinviewmodel.core.api.RestfulApi
 import com.samohao.kotlin.kotlinviewmodel.feature.login.ResultVo

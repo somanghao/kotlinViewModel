@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.app_bar_home.*
     const val PAGE_DRAWER = 0
     const val PAGE_HOME = 1
 
-class HomeActivity : AppCompatActivity() {
+class MainTabActivity : AppCompatActivity() {
 
     private val adapter by lazy { DrawerPagerAdatper(supportFragmentManager) }
     private val arrFragment by lazy { arrayListOf(DrawerFragment.newInstance() , MainFragment.newInstance()) }

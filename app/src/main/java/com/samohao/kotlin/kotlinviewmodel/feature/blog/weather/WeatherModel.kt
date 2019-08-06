@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog.weather
+package com.samohao.kotlin.kotlinviewmodel.feature.blog.weather
 
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
@@ -6,10 +6,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class WeatherDBModel(
+data class WeatherModel(
     @PrimaryKey val id: Int,
-    @Embedded val main: WeatherDBMainModel?,
-    @Embedded val wind: WeatherDBWindModel?,
+    @Embedded val main: WeatherMainModel?,
+    @Embedded val wind: WeatherWindModel?,
     @ColumnInfo(name = "cod") val cod: Int?,
     @ColumnInfo(name = "name") val name: String?
 )
@@ -23,7 +23,7 @@ data class WeatherDBModel(
 //) {
 //}
 @Entity
-data class WeatherDBMainModel(
+data class WeatherMainModel(
     @ColumnInfo(name = "temp") val temp: Float,
     @ColumnInfo(name = "temp_min") val temp_min: Float,
     @ColumnInfo(name = "temp_max") val temp_max: Float,
@@ -31,7 +31,7 @@ data class WeatherDBMainModel(
 )
 
 @Entity
-data class WeatherDBWindModel(
+data class WeatherWindModel(
     @ColumnInfo(name = "speed")val speed: Float,
     @ColumnInfo(name = "deg")val deg: Float?
 )

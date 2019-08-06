@@ -1,4 +1,4 @@
-package com.samohao.kotlin.kotlinviewmodel.feature.codingtest.blog
+package com.samohao.kotlin.kotlinviewmodel.feature.blog
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
